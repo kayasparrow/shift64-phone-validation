@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/mateusz-zadorozny/shift64-phone-validation/compare/v2.0.0...v2.0.1) (2026-10-12)
+
+
+### Bug Fixes
+
+* rename the plugin to SHIFT64 Phone Validation for WooCommerce ([#42](https://github.com/mateusz-zadorozny/shift64-phone-validation/issues/42)) ([58d7a91](https://github.com/mateusz-zadorozny/shift64-phone-validation/commit/58d7a91fc80cc8bacd376f1338d986f48ab770f8))
+
 # [2.0.0](https://github.com/mateusz-zadorozny/verify-phone-number-shift64/compare/v1.5.1...v2.0.0) (2026-10-09)
 
 

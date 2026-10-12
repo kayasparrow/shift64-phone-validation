@@ -4,7 +4,7 @@ Tags: phone validation, phone number, woocommerce, checkout, validation
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,9 @@ It was installed from a copy of the source code (such as a ZIP of the GitHub rep
 
 == Changelog ==
 
+= 2.0.1 =
+* Fix: Rename the plugin to SHIFT64 Phone Validation for WooCommerce.
+
 = 2.0.0 =
 * Breaking: Requires WordPress 7.1 or later. On an older WordPress the plugin checks no phone numbers and shows administrators a notice.
 * Fix: Keep block-checkout messages translated on WordPress 6.7+.
@@ -144,9 +147,6 @@ It was installed from a copy of the source code (such as a ZIP of the GitHub rep
 
 = 1.3.1 =
 * Fix: Validate the block checkout earlier, and only when the order is placed.
-
-= 1.3.0 =
-* New: Declare compatibility with High-Performance Order Storage (HPOS) and the Cart and Checkout blocks.
 
 Older releases: [full changelog on GitHub](https://github.com/mateusz-zadorozny/shift64-phone-validation/blob/master/CHANGELOG.md).
 
