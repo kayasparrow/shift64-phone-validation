@@ -103,7 +103,7 @@ class Assets {
 			if ( has_block( 'woocommerce/checkout', $current_page ) ) {
 				return true;
 			}
-			if ( has_shortcode( $current_page->post_content, 'woocommerce_checkout' ) ) {
+			if ( self::has_classic_checkout( $current_page->post_content ) ) {
 				return false;
 			}
 		}
@@ -121,5 +121,21 @@ class Assets {
 
 		// Check if page contains the checkout block.
 		return has_block( 'woocommerce/checkout', $checkout_page );
+	}
+
+	/**
+	 * Check if content holds the classic checkout: the [woocommerce_checkout]
+	 * shortcode, or the editor's "Classic Checkout" block, which is saved as
+	 * <!-- wp:woocommerce/classic-shortcode {"shortcode":"checkout"} /-->.
+	 *
+	 * @param string $content Post content.
+	 * @return bool True if the content holds the classic checkout.
+	 */
+	private static function has_classic_checkout( string $content ): bool {
+		if ( has_shortcode( $content, 'woocommerce_checkout' ) ) {
+			return true;
+		}
+
+		return 1 === preg_match( '#<!--\s+wp:woocommerce/classic-shortcode\s+\{[^}]*"shortcode":"checkout"#', $content );
 	}
 }
