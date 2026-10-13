@@ -84,7 +84,11 @@ class Assets {
 	}
 
 	/**
-	 * Check if the current checkout page uses block checkout.
+	 * Check if the checkout page being viewed uses block checkout.
+	 *
+	 * The page being viewed decides, so a store with both a block page and a
+	 * [woocommerce_checkout] page loads the right script on each (#34). The
+	 * configured checkout page is only the fallback, for a page that holds neither.
 	 *
 	 * @return bool True if using block checkout.
 	 */
@@ -92,6 +96,16 @@ class Assets {
 		// Check if WooCommerce Blocks is available.
 		if ( ! class_exists( 'Automattic\WooCommerce\Blocks\Package' ) ) {
 			return false;
+		}
+
+		$current_page = get_queried_object();
+		if ( $current_page instanceof \WP_Post ) {
+			if ( has_block( 'woocommerce/checkout', $current_page ) ) {
+				return true;
+			}
+			if ( has_shortcode( $current_page->post_content, 'woocommerce_checkout' ) ) {
+				return false;
+			}
 		}
 
 		// Get the checkout page.
